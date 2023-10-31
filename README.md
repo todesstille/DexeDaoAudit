@@ -14,3 +14,9 @@ Transferring funds in transferCreditAmount() implies native decimals format, not
 Reward token is not TryMinted during commission transfer  
 
 When transferring reward commission, amount is reduced down to the balance of a reward token in treasury. Then sendFunds() is called with the parameter «Mint», but mint is never applied, because of reduction.
+
+**GovPoolUnlock.sol line 53, Info.**
+maxUnlocked is never greater than maxLockedAmount
+
+**ERC20Gov.sol line 59, Gas optimisation.**
+totalSupply() == params.mintedTotal results in minting 0 tokens
