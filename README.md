@@ -5,6 +5,11 @@ Commit: [f2fe12eeac0c4c63ac39670912640dc91d94bda5](https://github.com/dexe-netwo
 
 ### Findings
 
+**GovPoolCredit.sol line 80, Critical**  
+CreditInfo internal representation is not parsed to 18 decimals
+
+Transferring funds in transferCreditAmount() implies native decimals format, not 18. View function getCreditInfo (line 56) also returns native decimals format, but should be internal 18-decimals format.
+
 **GovPoolCommission.sol line 27, Low.**  
 Reward token is not TryMinted during commission transfer  
 
